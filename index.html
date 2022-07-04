@@ -6,10 +6,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Library</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/5d933e8883.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- Sidebar -->
+    <nav class="sidebar closeSidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <i class="fa-solid fa-book"></i>
+                </span>
 
+                <div class="text header-text">
+                    <span class="name">My Library</span>
+                    <span class="author"><i class="fab fa-github"></i> TerroR75</span>
+                </div>
+            </div>
+
+            <i class="fa-solid fa-bookmark toggleS"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class="fa-solid fa-magnifying-glass icon"></i>
+                    <input type="search" placeholder="Search library">
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-plus icon"></i>
+                            <span class="text nav-test">Add New</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-trash-can icon"></i>
+                            <span class="text nav-test">Clear Library</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class="fa-solid fa-moon icon moon"></i>
+                        <i class="fa-solid fa-sun icon sun"></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-window">
+        <header>
+            <h3>Your library</h3>
+        </header>
+        <section class="book-display">
+            <article class="book">
+                <div class="book-content">
+                    <div class="book-information">
+                        <div class="book-title">Book title</div>
+                        <div class="book-author">Author author</div>
+                        <div class="book-pages"># of Pages</div>
+                        <div class="book-publish-date">Publishment date</div>
+                        <div class="book-review">Review</div>
+                    </div>
+
+                    <div class="book-functions">
+
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script src="scripts/app.js"></script>
 </body>
 
 </html>
