@@ -136,6 +136,7 @@ body.darkTheme {
 
 .sidebar.closeSidebar .text {
     opacity: 0;
+    visibility: hidden;
 }
 
 
