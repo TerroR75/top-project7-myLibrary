@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* === Color variables === */
+    --body-color: #FFFF;
+    --sidebar-color: rgb(245, 245, 245);
+    --primary-color: #5F1B55;
+    --primary-color-light: rgb(235, 235, 235);
+    --toggle-color: rgb(189, 187, 187);
+    --text-color: #242424;
+    --shadow-color: #000;
+
+    /* === Transitions === */
+    --transition-02: all 0.2s ease;
+    --transition-03: all 0.3s ease;
+    --transition-04: all 0.4s ease;
+    --transition-05: all 0.5s ease;
+}
+
+.icon {
+    color: var(--primary-color);
+}
+
+
+body {
+    height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--transition-05);
+}
+
+body.darkTheme {
+    /* === Color variables === */
+    --body-color: #1F1F1F;
+    --sidebar-color: #252525;
+    --primary-color: #DB80CD;
+    --primary-color-light: #2c2c2c;
+    --toggle-color: rgb(189, 187, 187);
+    --text-color: #cacaca;
+    --shadow-color: #DB80CD;
+}
+
+
+/* === Main Window === */
+.main-window {
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    transition: var(--transition-05);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    padding: 8px 40px;
+}
+
+.main-window header {
+    font-size: 2rem;
+    align-self: center;
+    display: flex;
+    min-width: 100%;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+
+.sidebar.closeSidebar~.main-window {
+    left: 88px;
+    width: calc(100% - 88px);
+}
+
+.main-window .book-display {
+    width: 100%;
+    margin-top: 15px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+
+/* === Book display === */
+.book-display .book {
+    background: var(--sidebar-color);
+    height: 300px;
+    border: 1px solid var(--shadow-color);
+    border-radius: 15px;
+    box-shadow: 8px 8px 13px -9px var(--shadow-color);
+}
+
+.book-display .book::before {
+    content: '';
+    position: absolute;
+    height: 300px;
+    width: 15px;
+    border-radius: 12px 0 0 12px;
+    background: var(--primary-color);
+
+}
+
+.book-information {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.book-content {
+    padding: 10px 25px;
+}
+
+.book-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.book-author {
+    font-style: italic;
+}
+
+/* === Reusable CSS === */
+.sidebar .text {
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--text-color);
+    margin-left: 15px;
+    transition: var(--transition-02);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.closeSidebar .text {
+    opacity: 0;
+}
+
+
+/* === Sidebar === */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background-color: var(--sidebar-color);
+    transition: var(--transition-05);
+    z-index: 100;
+}
+
+.sidebar.closeSidebar {
+    width: 88px;
+}
+
+.sidebar li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li .text,
+.sidebar li .icon {
+    font-size: 20px;
+    transition: var(--transition-02)
+}
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar .image-text .fa-book {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-left: 10px;
+}
+
+.sidebar header .image-text {
+    display: flex;
+    align-items: center;
+}
+
+.header-text i {
+    color: var(--primary-color);
+}
+
+header .image-text .header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 35px;
+}
+
+.header-text .author {
+    font-weight: 400;
+}
+
+.sidebar header .toggleS {
+    position: absolute;
+    top: 35%;
+    right: -25px;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    color: white;
+    transform: scale(1.4) rotate(-90deg);
+    cursor: pointer;
+}
+
+
+.sidebar header .toggleS {
+    color: var(--sidebar-color);
+}
+
+.sidebar .search-box {
+    background: var(--primary-color-light);
+    border-radius: 6px;
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+
+.sidebar li a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.sidebar li a:hover {
+    background-color: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar {
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode {
+    position: relative;
+    background-color: var(--primary-color-light);
+    border-radius: 6px;
+}
+
+.menu-bar .mode .moon-sun {
+    height: 50px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar .mode i {
+    position: absolute;
+}
+
+.menu-bar .mode i.sun {
+    opacity: 0;
+}
+
+body.darkTheme .menu-bar .mode i.sun {
+    opacity: 1;
+}
+
+body.darkTheme .menu-bar .mode i.moon {
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch {
+    position: absolute;
+    right: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 50px;
+    cursor: pointer;
+}
+
+.toggle-switch .switch {
+    position: relative;
+    height: 28px;
+    width: 54px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--transition-03);
+}
+
+body.darkTheme .switch::before {
+    left: 30px;
+}
