@@ -2,9 +2,10 @@
 
 Library with basic book insertion and deletion.
 
-Live Preview: #
+Live Preview: https://terror75.github.io/top-project7-myLibrary/
 
-![alt text](#)
+![alt text](https://i.imgur.com/4OUwuTB.png)
+![alt text](https://i.imgur.com/gZbeGoD.png)
 
 
 ## Authors
