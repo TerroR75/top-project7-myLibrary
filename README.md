@@ -11,10 +11,10 @@ Live Preview: https://terror75.github.io/top-project7-myLibrary/
 
 - Light/Dark theme changing
 - Animated navbar
+- Adding books with modals
 - more to come
 
 ## To do
-- Adding books with modals
 - Removing books
 - Full responsivness
 - Cloud database (Google's firebase) based on signing in with Google account
