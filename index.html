@@ -45,7 +45,7 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a class="btn-add-book" href="#">
                             <i class="fa-solid fa-plus icon"></i>
                             <span class="text nav-text">Add New</span>
                         </a>
@@ -74,13 +74,30 @@
         </div>
     </nav>
 
+    <!-- Form modal -->
+    <div class="modal-bg">
+        <div class="modal">
+            <h2>New book</h4>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author">
+                <label for="pagesCount">Pages Count</label>
+                <input type="number" id="pagesCount" name="pagesCount">
+                <label for="publishmentDate">Publishment Date</label>
+                <input type="text" id="publishmentDate" name="publishDate">
+                <button class="submit-button">Submit</button>
+                <i class="modal-close fa-solid fa-xmark"></i>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <div class="main-window">
         <header>
             <h3>Your library</h3>
         </header>
         <section class="book-display">
-            <article class="book">
+            <!-- <article class="book">
                 <div class="book-content">
                     <div class="book-information">
                         <div class="book-title">Book title</div>
@@ -94,7 +111,7 @@
 
                     </div>
                 </div>
-            </article>
+            </article> -->
         </section>
     </div>
 
