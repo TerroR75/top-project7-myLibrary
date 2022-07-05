@@ -6,6 +6,8 @@ const searchBox = body.querySelector('.search-box');
 const modeSwitch = body.querySelector('.toggle-switch');
 const modeText = body.querySelector('.mode-text');
 const bookDisplay = body.querySelector('.book-display');
+const bookFunctions = body.querySelector('.book-functions');
+// const btnBookRemove = bookFunctions.querySelector('.btn-book-remove');
 
 // == Modal related == //
 const btnAddBook = body.querySelector('.btn-add-book');
@@ -64,55 +66,83 @@ function addBookToLibrary() {
 
     newBook = new Book();
     myLibrary.push(newBook);
+    clearModalForm();
     refreshDisplay();
 }
 
+function clearModalForm() {
+    inputTitle.value = '';
+    inputAuthor.value = '';
+    inputPagesCount.value = '';
+    inputDate.value = '';
+}
 
 function refreshDisplay() {
-    // const display = document.getElementById('Library-container');
-    // const books = document.querySelectorAll('.book');
-    // books.forEach(book => display.removeChild(book));
+    // Clean displan
+    bookDisplay.innerHTML = "";
 
-    // for (let i = 0; i < myLibrary.length; i++) {
-    //     createBook(myLibrary[i]);
-    // }
+    // Render books on the display
+    appendBookElements();
+}
+
+function appendBookElements() {
+    for (let book of myLibrary) {
+        let newBook = document.createElement('article');
+        newBook.classList.add('book');
+        newBook.dataset.id = myLibrary.indexOf(book);
+
+        let divBookContent = document.createElement('div');
+        divBookContent.classList.add('book-content');
+
+        let divBookInfo = document.createElement('div');
+        divBookInfo.classList.add('book-information');
+
+        let divBookFunctions = document.createElement('div');
+        divBookFunctions.classList.add('book-functions');
+
+        // book info
+        let divBookTitle = document.createElement('div');
+        divBookTitle.classList.add('book-title');
+        divBookTitle.innerText = book.title;
+
+        let divBookAuthor = document.createElement('div');
+        divBookAuthor.classList.add('book-author');
+        divBookAuthor.innerText = book.author;
+
+        let divBookPages = document.createElement('div');
+        divBookPages.classList.add('book-pages');
+        divBookPages.innerText = book.pages;
+
+        let divBookPublishDate = document.createElement('div');
+        divBookPublishDate.classList.add('book-publish-date');
+        divBookPublishDate.innerText = inputDate.value;
+
+        // Book functions
+        let btnRemoveBook = document.createElement('i');
+        btnRemoveBook.setAttribute('id', 'btn-book-remove')
+        btnRemoveBook.classList.add('fa-solid');
+        btnRemoveBook.classList.add('fa-xmark');
+        btnRemoveBook.addEventListener('click', () => {
+            myLibrary.splice(myLibrary.indexOf(book), 1);
+            refreshDisplay();
+        });
+
+        newBook.appendChild(divBookContent);
+        divBookContent.appendChild(divBookInfo);
+        divBookContent.appendChild(divBookFunctions);
+        divBookInfo.appendChild(divBookTitle);
+        divBookInfo.appendChild(divBookAuthor);
+        divBookInfo.appendChild(divBookPages);
+        divBookInfo.appendChild(divBookPublishDate);
+        divBookFunctions.appendChild(btnRemoveBook);
+
+        bookDisplay.appendChild(newBook);
 
 
-    // for (let book in myLibrary) {
-    //     let newBook = document.createElement('article');
-    //     newBook.classList.add('book');
+    }
+}
 
-    //     let divBookContent = document.createElement('div');
-    //     divBookContent.classList.add('book-content');
+function removeBookFunction() {
 
-    //     let divBookInfo = document.createElement('div')
-    //     divBookInfo.classList.add('book-information');
-
-    //     // book info
-    //     let divBookTitle = document.createElement('div');
-    //     divBookTitle.classList.add('book-title');
-    //     divBookTitle.innerText = book.title;
-
-    //     let divBookAuthor = document.createElement('div');
-    //     divBookAuthor.classList.add('book-author');
-    //     divBookAuthor.innerText = book.author;
-
-    //     let divBookPages = document.createElement('div');
-    //     divBookPages.classList.add('book-pages');
-    //     divBookPages.innerText = book.publishDate;
-
-    //     let divBookPublishDate = document.createElement('div');
-    //     divBookPublishDate.classList.add('book-publish-date');
-    //     divBookPublishDate.innerText = inputDate.value;
-
-    //     newBook.appendChild(divBookContent);
-    //     divBookContent.appendChild(divBookInfo);
-    //     divBookInfo.appendChild(divBookTitle);
-    //     divBookInfo.appendChild(divBookAuthor);
-    //     divBookInfo.appendChild(divBookPages);
-    //     divBookInfo.appendChild(divBookPublishDate);
-
-    //     bookDisplay.appendChild(newBook);
-    // }
 }
 
