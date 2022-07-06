@@ -47,8 +47,14 @@ body.darkTheme {
     --shadow-color: #DB80CD;
 }
 
+.fa-github {
+    transition: var(--transition-05);
+}
 
-
+.fa-github:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+}
 
 
 /* === Main Window === */
