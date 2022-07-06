@@ -305,6 +305,7 @@ header .image-text .header-text {
     border: none;
     border-radius: 6px;
     background: var(--primary-color-light);
+    color: var(--text-color);
 }
 
 .sidebar li a {
