@@ -3,11 +3,12 @@ const body = document.querySelector('body');
 const sidebar = body.querySelector('.sidebar');
 const toggleSidebar = body.querySelector('.toggleS');
 const searchBox = body.querySelector('.search-box');
+const searchInput = body.querySelector('.search-input');
 const modeSwitch = body.querySelector('.toggle-switch');
 const modeText = body.querySelector('.mode-text');
 const bookDisplay = body.querySelector('.book-display');
 const bookFunctions = body.querySelector('.book-functions');
-// const btnBookRemove = bookFunctions.querySelector('.btn-book-remove');
+
 
 // == Modal related == //
 const btnAddBook = body.querySelector('.btn-add-book');
@@ -54,6 +55,11 @@ btnModalClose.addEventListener('click', () => {
 });
 
 btnSubmit.addEventListener('click', addBookToLibrary);
+
+searchInput.addEventListener('input', () => {
+    console.log('xd');
+});
+
 
 let myLibrary = [];
 
