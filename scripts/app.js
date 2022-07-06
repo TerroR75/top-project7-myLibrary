@@ -9,7 +9,6 @@ const modeText = body.querySelector('.mode-text');
 const bookDisplay = body.querySelector('.book-display');
 const bookFunctions = body.querySelector('.book-functions');
 
-
 // == Modal related == //
 const btnAddBook = body.querySelector('.btn-add-book');
 const modalBg = body.querySelector('.modal-bg');
