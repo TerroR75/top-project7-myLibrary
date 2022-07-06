@@ -78,11 +78,17 @@ function clearModalForm() {
 }
 
 function refreshDisplay() {
-    // Clean displan
+    // Clean display
     bookDisplay.innerHTML = "";
 
     // Render books on the display
     appendBookElements();
+
+    // Update styles
+    updateStyles();
+
+    // Add button events
+    addBookFunctions();
 }
 
 function appendBookElements() {
@@ -107,25 +113,28 @@ function appendBookElements() {
 
         let divBookAuthor = document.createElement('div');
         divBookAuthor.classList.add('book-author');
-        divBookAuthor.innerText = book.author;
+        divBookAuthor.innerText = `By: ${book.author}`;
 
         let divBookPages = document.createElement('div');
         divBookPages.classList.add('book-pages');
-        divBookPages.innerText = book.pages;
+        divBookPages.innerText = `Length: ${book.pages} pages`;
 
         let divBookPublishDate = document.createElement('div');
         divBookPublishDate.classList.add('book-publish-date');
-        divBookPublishDate.innerText = inputDate.value;
+        divBookPublishDate.innerText = `Publishment year: ${book.publishDate}`;
 
         // Book functions
         let btnRemoveBook = document.createElement('i');
-        btnRemoveBook.setAttribute('id', 'btn-book-remove')
-        btnRemoveBook.classList.add('fa-solid');
-        btnRemoveBook.classList.add('fa-xmark');
-        btnRemoveBook.addEventListener('click', () => {
-            myLibrary.splice(myLibrary.indexOf(book), 1);
-            refreshDisplay();
-        });
+        btnRemoveBook.classList.add('fa-solid', 'fa-xmark', 'btn-book-remove');
+        btnRemoveBook.dataset.id = myLibrary.indexOf(book);
+        // btnRemoveBook.addEventListener('click', () => {
+        //     myLibrary.splice(myLibrary.indexOf(book), 1);
+        //     refreshDisplay();
+        // });
+
+        let btnReadBook = document.createElement('i');
+        btnReadBook.classList.add('fa-solid', 'fa-check', 'btn-book-finished');
+        btnReadBook.dataset.id = myLibrary.indexOf(book);
 
         newBook.appendChild(divBookContent);
         divBookContent.appendChild(divBookInfo);
@@ -134,15 +143,47 @@ function appendBookElements() {
         divBookInfo.appendChild(divBookAuthor);
         divBookInfo.appendChild(divBookPages);
         divBookInfo.appendChild(divBookPublishDate);
+
+        divBookFunctions.appendChild(btnReadBook);
         divBookFunctions.appendChild(btnRemoveBook);
 
         bookDisplay.appendChild(newBook);
-
-
     }
 }
 
-function removeBookFunction() {
+function addBookFunctions() {
+    let removeBtns = document.getElementsByClassName('btn-book-remove');
+    for (let btn of removeBtns) {
+        btn.addEventListener('click', () => {
+            let userInput = confirm("Are you sure?");
+            if (userInput) {
+                myLibrary.splice(parseInt(btn.dataset.id), 1);
+                refreshDisplay();
+            }
+        });
+    }
 
+    let readStatusBtns = document.getElementsByClassName('btn-book-finished');
+    for (let btn of readStatusBtns) {
+        btn.addEventListener('click', () => {
+            if (myLibrary[btn.dataset.id].isRead) {
+                myLibrary[btn.dataset.id].isRead = false;
+            } else {
+                myLibrary[btn.dataset.id].isRead = true;
+            }
+            refreshDisplay();
+        });
+    }
 }
 
+function updateStyles() {
+    let books = document.getElementsByClassName('book');
+    for (let book of books) {
+        console.log(book);
+        if (myLibrary[book.dataset.id].isRead) {
+            book.classList.add('isRead');
+        } else {
+            book.classList.remove('isRead');
+        }
+    }
+}

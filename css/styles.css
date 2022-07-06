@@ -47,6 +47,8 @@ body.darkTheme {
 }
 
 
+
+
 /* === Main Window === */
 .main-window {
     position: relative;
@@ -80,7 +82,8 @@ body.darkTheme {
     margin-top: 15px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(5, 1fr);
     gap: 25px;
 }
 
@@ -94,6 +97,7 @@ body.darkTheme {
     box-shadow: 8px 8px 13px -9px var(--shadow-color);
 }
 
+
 .book-display .book::before {
     content: '';
     position: absolute;
@@ -106,28 +110,37 @@ body.darkTheme {
 
 .book-functions {
     position: relative;
-    width: 20%;
+    width: 30%;
     align-self: flex-end;
 
     display: flex;
     justify-content: center;
+    gap: 50px;
     align-items: center;
+    /* background: red; */
 }
 
-#btn-book-remove {
+.btn-book-finished {
+    font-size: 2rem;
+    transition: var(--transition-02);
+}
+
+.btn-book-remove {
     /* position: absolute; */
     font-size: 2rem;
+    transition: var(--transition-02);
 }
 
-#btn-book-remove:hover {
+.btn-book-finished:hover {
+    color: rgb(0, 241, 0);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.btn-book-remove:hover {
     color: red;
     cursor: pointer;
-}
-
-.book-information {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    transform: scale(1.1);
 }
 
 .book-content {
@@ -137,14 +150,33 @@ body.darkTheme {
     height: 100%;
 }
 
+.book-information {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
 .book-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
+
 }
 
 .book-author {
     font-style: italic;
 }
+
+.book.isRead .btn-book-finished {
+    color: rgb(0, 255, 0);
+    transform: scale(1.1);
+}
+
+/* .book.isRead {
+    border: 1px solid rgb(1, 255, 1);
+    box-shadow: 8px 8px 13px -9px rgb(0, 255, 0);
+    --primary-color: rgba(0, 255, 0, 0.979);
+} */
 
 /* === Reusable CSS === */
 .sidebar .text {
