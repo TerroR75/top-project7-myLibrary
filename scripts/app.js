@@ -23,7 +23,13 @@ const inputTitle = body.querySelector('#title'),
     inputDate = body.querySelector('#publishmentDate');
 
 
-
+// Theme preference
+const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+if (userPrefersDark) {
+    body.classList.add('darkTheme');
+} else {
+    body.classList.remove('darkTheme');
+}
 
 toggleSidebar.addEventListener('click', () => {
     sidebar.classList.toggle('closeSidebar');
