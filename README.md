@@ -14,9 +14,9 @@ Live Preview: https://terror75.github.io/top-project7-myLibrary/
 - Adding books with modals
 - Removing books
 - Theme/mode system preference
+- Responsive
 
 ## To do
-- Full responsivness
 - Cloud database (Google's firebase) based on signing in with Google account
 
 ## Authors
