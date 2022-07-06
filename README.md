@@ -13,7 +13,7 @@ Live Preview: https://terror75.github.io/top-project7-myLibrary/
 - Animated navbar
 - Adding books with modals
 - Removing books
-- more to come
+- Theme/mode system preference
 
 ## To do
 - Full responsivness
