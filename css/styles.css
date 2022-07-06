@@ -8,7 +8,7 @@
 }
 
 :root {
-    /* === Color variables === */
+    /* === Light theme === */
     --body-color: #FFFF;
     --sidebar-color: rgb(245, 245, 245);
     --primary-color: #5F1B55;
@@ -17,16 +17,10 @@
     --text-color: #242424;
     --shadow-color: #000;
 
-    /* === Transitions === */
     --transition-02: all 0.2s ease;
     --transition-03: all 0.3s ease;
     --transition-04: all 0.4s ease;
     --transition-05: all 0.5s ease;
-}
-
-
-.icon {
-    color: var(--primary-color);
 }
 
 
@@ -90,7 +84,6 @@ body.darkTheme {
     margin-top: 15px;
 
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
     grid-template-columns: repeat(5, 1fr);
     gap: 25px;
 }
@@ -125,7 +118,6 @@ body.darkTheme {
     justify-content: center;
     gap: 50px;
     align-items: center;
-    /* background: red; */
 }
 
 .btn-book-finished {
@@ -179,12 +171,6 @@ body.darkTheme {
     color: rgb(0, 255, 0);
     transform: scale(1.1);
 }
-
-/* .book.isRead {
-    border: 1px solid rgb(1, 255, 1);
-    box-shadow: 8px 8px 13px -9px rgb(0, 255, 0);
-    --primary-color: rgba(0, 255, 0, 0.979);
-} */
 
 /* === Reusable CSS === */
 .sidebar .text {
@@ -256,18 +242,18 @@ body.darkTheme {
     align-items: center;
 }
 
-.header-text i {
+.sidebar .header-text i {
     color: var(--primary-color);
 }
 
-header .image-text .header-text {
+.sidebar header .image-text .header-text {
     display: flex;
     flex-direction: column;
     gap: 5px;
     margin-left: 35px;
 }
 
-.header-text .author {
+.sidebar .header-text .author {
     font-weight: 400;
 }
 
@@ -298,7 +284,7 @@ header .image-text .header-text {
     border-radius: 6px;
 }
 
-.search-box input {
+.sidebar .search-box input {
     height: 100%;
     width: 100%;
     outline: none;
@@ -490,9 +476,13 @@ body.darkTheme .switch::before {
 }
 
 
+/* === Utils ==== */
+.icon {
+    color: var(--primary-color);
+}
 
 
-
+/* === Responsivness === */
 @media screen and (max-width: 1600px) {
     .main-window .book-display {
         display: grid;
