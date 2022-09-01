@@ -61,7 +61,7 @@ searchInput.addEventListener('input', () => {
 
 
 let myLibrary = [];
-// SAVE & LOAD (local storage)
+// SAVE & LOAD (local storage))
 loadData();
 
 
