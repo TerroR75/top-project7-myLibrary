@@ -61,6 +61,10 @@ searchInput.addEventListener('input', () => {
 
 
 let myLibrary = [];
+// SAVE & LOAD (local storage)
+if (window.localStorage.getItem('data') !== '') {
+    loadData();
+}
 
 
 function Book() {
@@ -77,6 +81,7 @@ function addBookToLibrary() {
 
     newBook = new Book();
     myLibrary.push(newBook);
+    saveData()
     clearModalForm();
     refreshDisplay();
 }
@@ -169,6 +174,7 @@ function addBookFunctions() {
             let userInput = confirm("Are you sure?");
             if (userInput) {
                 myLibrary.splice(parseInt(btn.dataset.id), 1);
+                saveData();
                 refreshDisplay();
             }
         });
@@ -182,6 +188,7 @@ function addBookFunctions() {
             } else {
                 myLibrary[btn.dataset.id].isRead = true;
             }
+            saveData();
             refreshDisplay();
         });
     }
@@ -197,4 +204,15 @@ function updateStyles() {
             book.classList.remove('isRead');
         }
     }
+}
+
+function saveData() {
+    let data = JSON.stringify(myLibrary);
+    window.localStorage.setItem('data', data);
+}
+
+function loadData() {
+    let data = window.localStorage.getItem('data');
+    myLibrary = JSON.parse(data);
+    refreshDisplay();
 }
