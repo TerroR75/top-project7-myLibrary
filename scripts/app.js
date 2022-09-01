@@ -62,9 +62,9 @@ searchInput.addEventListener('input', () => {
 
 let myLibrary = [];
 // SAVE & LOAD (local storage)
-if (window.localStorage.getItem('data') !== '') {
-    loadData();
-}
+// if (window.localStorage.getItem('data') !== '') {
+//     loadData();
+// }
 
 
 function Book() {
