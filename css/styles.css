@@ -481,6 +481,10 @@ body.darkTheme .switch::before {
     color: var(--primary-color);
 }
 
+.auth-btn{
+    color: red;
+}
+
 
 /* === Responsivness === */
 @media screen and (max-width: 1600px) {
