@@ -1,14 +1,17 @@
 const path = require('path');
 
 module.exports = {
-  // The entry point file described above
+  mode: 'development',
   entry: './src/index.js',
-  // The location of the build folder described above
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist/',
   },
-  // Optional and for development only. This provides the ability to
-  // map the built code back to the original source format when debugging.
+  devServer: {
+    static: {
+      directory: path.join(__dirname, '/'),
+    },
+  },
   devtool: 'eval-source-map',
 };

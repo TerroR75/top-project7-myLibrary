@@ -28,6 +28,7 @@ const modeSwitch = body.querySelector('.toggle-switch');
 const modeText = body.querySelector('.mode-text');
 const bookDisplay = body.querySelector('.book-display');
 const bookFunctions = body.querySelector('.book-functions');
+const authBtn = body.querySelector('.auth-btn');
 
 // == Modal related == //
 const btnAddBook = body.querySelector('.btn-add-book');
@@ -55,14 +56,13 @@ const firebaseApp = initializeApp({
 });
 const db = getFirestore(firebaseApp);
 
-async function loadCity(name) {
-  const cityDoc = doc(db, `cities/${name}`);
-  const snapshot = await getDoc(cityDoc);
-  return {
-    id: snapshot.id,
-    ...snapshot.data(),
-  };
+async function signIn() {
+  // Sign in Firebase using popup auth and Google as the identity provider.
+  var provider = new GoogleAuthProvider();
+  await signInWithPopup(getAuth(), provider);
 }
+
+authBtn.addEventListener('click', signIn);
 
 // Theme preference
 const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
